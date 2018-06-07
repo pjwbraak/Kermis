@@ -6,11 +6,11 @@ class Kermis {
 
     ArrayList<Attractie> attractieLijst = new ArrayList<Attractie>();
 
-    Attractie botsautos = new Botsautos("Botsautos", 2.50, 50);
-    Attractie spin = new Spin("Spin", 2.25, 60);
+    Attractie botsautos     = new Botsautos("Botsautos", 2.50, 50);
+    Attractie spin          = new Spin("Spin", 2.25, 60);
     Attractie spiegelpaleis = new Spiegelpaleis("Spiegelpaleis", 2.75, 40);
-    Attractie spookhuis = new Spookhuis("Spookhuis", 3.20, 60);
-    Attractie hawaii = new Hawaii("Hawaii", 2.90, 40);
+    Attractie spookhuis     = new Spookhuis("Spookhuis", 3.20, 60);
+    Attractie hawaii        = new Hawaii("Hawaii", 2.90, 40);
     Attractie ladderklimmen = new Ladderklimmen("Ladderklimmen", 5.00, 10);
 
     Kassa kassa = new Kassa();
@@ -23,7 +23,13 @@ class Kermis {
 
     private void runKermis() {
 
-        addToAttractieLijst(botsautos,spin,spiegelpaleis,spookhuis,hawaii,ladderklimmen);
+        addToAttractieLijst(    botsautos,
+                                spin,
+                                spiegelpaleis,
+                                spookhuis,
+                                hawaii,
+                                ladderklimmen
+                            );
 
         System.out.println("De Kermis!");
 
@@ -50,22 +56,22 @@ class Kermis {
             if (input.hasNextInt()) {
                 int keuze = input.nextInt();
                 if (keuze == 1) {
-                    startAttractie(botsautos);
+                    verwerkAttractie(attractieLijst.get(0));
                     continue;
                 } else if (keuze == 2) {
-                    startAttractie(spin);
+                    verwerkAttractie(attractieLijst.get(1));
                     continue;
                 } else if (keuze == 3) {
-                    startAttractie(spiegelpaleis);
+                    verwerkAttractie(attractieLijst.get(2));
                     continue;
                 } else if (keuze == 4) {
-                    startAttractie(spookhuis);
+                    verwerkAttractie(attractieLijst.get(3));
                     continue;
                 } else if (keuze == 5) {
-                    startAttractie(hawaii);
+                    verwerkAttractie(attractieLijst.get(4));
                     continue;
                 } else if (keuze == 6) {
-                    startAttractie(ladderklimmen);
+                    verwerkAttractie(attractieLijst.get(5));
                     continue;
                 } else {
                     System.out.println("ongeldige waarde");
@@ -87,7 +93,7 @@ class Kermis {
         }
     }
 
-    private void startAttractie(Attractie attractie){
+    private void verwerkAttractie(Attractie attractie){
         double omzetTotaal = kassa.getOmzet() + attractie.getPrijs();
         kassa.setOmzet(omzetTotaal);
         attractie.draaien();
@@ -96,16 +102,11 @@ class Kermis {
     private void printAttractieMenuTekst(){
 
         System.out.println("Kies attractie:");
-        System.out.println("1: " + botsautos.getNaam() + " - " + botsautos.getPrijs());
-        System.out.println("2: " + spin.getNaam() + " - " + spin.getPrijs());
-        System.out.println("3: " + spiegelpaleis.getNaam() + " - " + spiegelpaleis.getPrijs());
-        System.out.println("4: " + spookhuis.getNaam() + " - " + spookhuis.getPrijs());
-        System.out.println("5: " + hawaii.getNaam() + " - " + hawaii.getPrijs());
-        System.out.println("6: " + ladderklimmen.getNaam() + " - " + ladderklimmen.getPrijs());
+        for(int x = 0; x < attractieLijst.size(); x++){
+            System.out.println((x + 1) + ": " + attractieLijst.get(x).getNaam() + " - " + attractieLijst.get(x).getPrijs());
+        }
         System.out.println("'o': Laat omzet zien");
         System.out.println("'k': Aantal kaartjes verkocht");
         System.out.println("'s': Stoppen");
-
-        //object invoeren ipv object fields
     }
 }
