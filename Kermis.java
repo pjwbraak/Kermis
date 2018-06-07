@@ -19,7 +19,6 @@ class Kermis {
 
     private void runKermis() {
 
-
         System.out.println("De Kermis!");
 
         attractieKiezen();
@@ -62,7 +61,13 @@ class Kermis {
                 }
             } else {
                 String keuze = input.nextLine();
-                if (Objects.equals(keuze, "s")) {
+                if (Objects.equals(keuze, "o")) {
+                    System.out.println("omzet laten zien");
+                }
+                else if (Objects.equals(keuze, "k")) {
+                    System.out.println("kaartjes laten zien");
+                }
+                else if (Objects.equals(keuze, "s")) {
                     doorgaan = true;
                 }
             }
@@ -71,7 +76,7 @@ class Kermis {
 
     private void attractieMenuTekst(){
 
-        System.out.println("Kies attractie");
+        System.out.println("Kies attractie:");
         System.out.println("1: " + botsautos.getNaam() + " - " + botsautos.getPrijs());
         System.out.println("2: " + spin.getNaam() + " - " + spin.getPrijs());
         System.out.println("3: " + spiegelpaleis.getNaam() + " - " + spiegelpaleis.getPrijs());
@@ -81,6 +86,5 @@ class Kermis {
         System.out.println("'o': Laat omzet zien");
         System.out.println("'k': Aantal kaartjes verkocht");
         System.out.println("'s': Stoppen");
-
     }
 }

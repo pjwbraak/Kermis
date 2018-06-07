@@ -1,9 +1,10 @@
 abstract class Attractie {
 
     String naam;
-    float prijs;
+    double prijs;
     int oppervlakte;
     double omzet;
+    int kaartjesVerkocht;
 
     void draaien(){
     }
@@ -24,4 +25,23 @@ abstract class Attractie {
         return omzet;
     }
 
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+    public void setPrijs(double prijs) {
+        this.prijs = prijs;
+    }
+
+    public void setOppervlakte(int oppervlakte) {
+        this.oppervlakte = oppervlakte;
+    }
+
+    public void setOmzet(double omzet) {
+        this.omzet = omzet;
+    }
+
+    public void setKaartjesVerkocht(int kaartjesVerkocht) {
+        this.kaartjesVerkocht = kaartjesVerkocht;
+    }
 }
