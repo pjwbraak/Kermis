@@ -1,6 +1,8 @@
 class Spin extends Attractie {
 
     String naam;
+    float prijs;
+    int oppervlakte;
 
     Spin(String naam){
         this.naam = naam;

@@ -1,6 +1,8 @@
 class Spookhuis extends Attractie {
 
     String naam;
+    float prijs;
+    int oppervlakte;
 
     Spookhuis(String naam){
         this.naam = naam;

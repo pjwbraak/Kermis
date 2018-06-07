@@ -1,6 +1,8 @@
 class Botsautos extends Attractie {
 
     String naam;
+    float prijs;
+    int oppervlakte;
 
     Botsautos(String naam){
         this.naam = naam;
