@@ -1,9 +1,9 @@
 class Spookhuis extends Attractie {
 
-    String naam;
-    double prijs;
-    int oppervlakte;
-    double omzet;
+    private String naam;
+    private double prijs;
+    private int oppervlakte;
+    private double omzet;
 
     Spookhuis(String naam, double prijs, int oppervlakte){
         this.naam = naam;

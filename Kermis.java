@@ -11,11 +11,11 @@ class Kermis {
 
     final void run() {
 
-        kiesAttractie();
+        runKermis();
 
     }
 
-    void kiesAttractie() {
+    private void runKermis() {
 
         Scanner input = new Scanner(System.in);
         boolean run = false;

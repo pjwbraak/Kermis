@@ -1,9 +1,9 @@
-public class Ladderklimmen extends Attractie {
+class Ladderklimmen extends Attractie {
 
-    String naam;
-    double prijs;
-    int oppervlakte;
-    double omzet;
+    private String naam;
+    private double prijs;
+    private int oppervlakte;
+    private double omzet;
 
     Ladderklimmen(String naam, double prijs, int oppervlakte){
         this.naam = naam;

@@ -1,9 +1,9 @@
 class Botsautos extends Attractie {
 
-    String naam;
-    double prijs;
-    int oppervlakte;
-    double omzet;
+    private String naam;
+    private double prijs;
+    private int oppervlakte;
+    private double omzet;
 
     Botsautos(String naam, double prijs, int oppervlakte){
         this.naam = naam;

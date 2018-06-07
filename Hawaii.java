@@ -1,9 +1,9 @@
-public class Hawaii extends Attractie {
+class Hawaii extends Attractie {
 
-    String naam;
-    double prijs;
-    int oppervlakte;
-    double omzet;
+    private String naam;
+    private double prijs;
+    private int oppervlakte;
+    private double omzet;
 
     Hawaii(String naam, double prijs, int oppervlakte){
         this.naam = naam;
