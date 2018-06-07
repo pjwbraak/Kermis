@@ -2,44 +2,45 @@ import java.util.Scanner;
 
 class Kermis {
 
+    Attractie botsautos = new Botsautos("Botsautos", 2.50, 50);
+    Attractie spin = new Spin("Spin", 2.25, 60);
+    Attractie spiegelpaleis = new Spiegelpaleis("Spiegelpaleis", 2.75, 40);
+    Attractie spookhuis = new Spookhuis("Spookhuis", 3.20, 60);
+    Attractie hawaii = new Hawaii("Hawaii", 2.90, 40);
+    Attractie ladderklimmen = new Ladderklimmen("Ladderklimmen", 5.00, 10);
+
     final void run() {
 
-        Attractie botsautos = new Botsautos("Botsautos");
-        Attractie spin = new Spin("Spin");
-        Attractie spiegelpaleis = new Spiegelpaleis("Spiegelpaleis");
-        Attractie spookhuis = new Spookhuis("Spookhuis");
-        Attractie hawaii = new Hawaii("Hawaii");
-        Attractie ladderklimmen = new Ladderklimmen("Ladderklimmen");
+        kiesAttractie();
+
+    }
+
+    void kiesAttractie() {
 
         Scanner input = new Scanner(System.in);
-        boolean keuzeAttractie = false;
+        boolean run = false;
 
         System.out.println("Kies attractie");
-        while (!keuzeAttractie) {
+        while (!run) {
             int keuze = input.nextInt();
             if (keuze == 1) {
                 botsautos.draaien();
-                keuzeAttractie = true;
-            }
-            else if (keuze == 2) {
+                continue;
+            } else if (keuze == 2) {
                 spin.draaien();
-                keuzeAttractie = true;
-            }
-            else if (keuze == 3) {
+                continue;
+            } else if (keuze == 3) {
                 spiegelpaleis.draaien();
-                keuzeAttractie = true;
-            }
-            else if (keuze == 4) {
+                continue;
+            } else if (keuze == 4) {
                 spookhuis.draaien();
-                keuzeAttractie = true;
-            }
-            else if (keuze == 5) {
+                continue;
+            } else if (keuze == 5) {
                 hawaii.draaien();
-                keuzeAttractie = true;
-            }
-            else if (keuze == 5) {
+                continue;
+            } else if (keuze == 5) {
                 ladderklimmen.draaien();
-                keuzeAttractie = true;
+                continue;
             } else {
                 System.out.println("ongeldige waarde");
                 continue;

@@ -1,11 +1,14 @@
 class Spin extends Attractie {
 
     String naam;
-    float prijs;
+    double prijs;
     int oppervlakte;
+    double omzet;
 
-    Spin(String naam){
+    Spin(String naam, double prijs, int oppervlakte){
         this.naam = naam;
+        this.prijs = prijs;
+        this.oppervlakte = oppervlakte;
     }
 
     @Override

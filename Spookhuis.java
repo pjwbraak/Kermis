@@ -1,11 +1,14 @@
 class Spookhuis extends Attractie {
 
     String naam;
-    float prijs;
+    double prijs;
     int oppervlakte;
+    double omzet;
 
-    Spookhuis(String naam){
+    Spookhuis(String naam, double prijs, int oppervlakte){
         this.naam = naam;
+        this.prijs = prijs;
+        this.oppervlakte = oppervlakte;
     }
 
     @Override

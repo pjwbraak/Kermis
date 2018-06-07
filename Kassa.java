@@ -1,0 +1,5 @@
+class Kassa {
+
+    double omzet;
+
+}
