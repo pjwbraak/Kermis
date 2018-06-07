@@ -1,7 +1,10 @@
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 class Kermis {
+
+    ArrayList<Attractie> attractieLijst = new ArrayList<Attractie>();
 
     Attractie botsautos = new Botsautos("Botsautos", 2.50, 50);
     Attractie spin = new Spin("Spin", 2.25, 60);
@@ -20,6 +23,8 @@ class Kermis {
 
     private void runKermis() {
 
+        addToAttractieLijst(botsautos,spin,spiegelpaleis,spookhuis,hawaii,ladderklimmen);
+
         System.out.println("De Kermis!");
 
         attractieKiezen();
@@ -28,9 +33,15 @@ class Kermis {
 
     }
 
+    private void addToAttractieLijst(Attractie... attractie){
+        for (Attractie x : attractie) {
+            attractieLijst.add(x);
+        }
+    }
+
     private void attractieKiezen(){
 
-        attractieMenuTekst();
+        printAttractieMenuTekst();
 
         Scanner input = new Scanner(System.in);
         boolean doorgaan = false;
@@ -82,7 +93,7 @@ class Kermis {
         attractie.draaien();
     }
 
-    private void attractieMenuTekst(){
+    private void printAttractieMenuTekst(){
 
         System.out.println("Kies attractie:");
         System.out.println("1: " + botsautos.getNaam() + " - " + botsautos.getPrijs());
@@ -94,5 +105,7 @@ class Kermis {
         System.out.println("'o': Laat omzet zien");
         System.out.println("'k': Aantal kaartjes verkocht");
         System.out.println("'s': Stoppen");
+
+        //object invoeren ipv object fields
     }
 }
