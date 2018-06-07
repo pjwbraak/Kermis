@@ -10,6 +10,7 @@ class Kermis {
     Attractie hawaii = new Hawaii("Hawaii", 2.90, 40);
     Attractie ladderklimmen = new Ladderklimmen("Ladderklimmen", 5.00, 10);
 
+    Kassa kassa = new Kassa();
 
     final void run() {
 
@@ -38,22 +39,22 @@ class Kermis {
             if (input.hasNextInt()) {
                 int keuze = input.nextInt();
                 if (keuze == 1) {
-                    botsautos.draaien();
+                    startAttractie(botsautos);
                     continue;
                 } else if (keuze == 2) {
-                    spin.draaien();
+                    startAttractie(spin);
                     continue;
                 } else if (keuze == 3) {
-                    spiegelpaleis.draaien();
+                    startAttractie(spiegelpaleis);
                     continue;
                 } else if (keuze == 4) {
-                    spookhuis.draaien();
+                    startAttractie(spookhuis);
                     continue;
                 } else if (keuze == 5) {
-                    hawaii.draaien();
+                    startAttractie(hawaii);
                     continue;
                 } else if (keuze == 6) {
-                    ladderklimmen.draaien();
+                    startAttractie(ladderklimmen);
                     continue;
                 } else {
                     System.out.println("ongeldige waarde");
@@ -62,7 +63,8 @@ class Kermis {
             } else {
                 String keuze = input.nextLine();
                 if (Objects.equals(keuze, "o")) {
-                    System.out.println("omzet laten zien");
+                    System.out.println("De totale omzet is:");
+                    System.out.println(kassa.getOmzet());
                 }
                 else if (Objects.equals(keuze, "k")) {
                     System.out.println("kaartjes laten zien");
@@ -72,6 +74,12 @@ class Kermis {
                 }
             }
         }
+    }
+
+    private void startAttractie(Attractie attractie){
+        double omzetTotaal = kassa.getOmzet() + attractie.getPrijs();
+        kassa.setOmzet(omzetTotaal);
+        attractie.draaien();
     }
 
     private void attractieMenuTekst(){
