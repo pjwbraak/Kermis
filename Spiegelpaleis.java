@@ -1,8 +1,8 @@
-class Botsautos extends Attractie {
+class Spiegelpaleis extends Attractie {
 
     String naam;
 
-    Botsautos(String naam){
+    Spiegelpaleis(String naam){
         this.naam = naam;
     }
 
@@ -10,5 +10,4 @@ class Botsautos extends Attractie {
     void draaien(){
         System.out.println("De attractie '" + naam + "' draait");
     }
-
 }
