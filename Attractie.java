@@ -8,4 +8,20 @@ abstract class Attractie {
     void draaien(){
     }
 
+    public String getNaam() {
+        return naam;
+    }
+
+    public double getPrijs() {
+        return prijs;
+    }
+
+    public int getOppervlakte() {
+        return oppervlakte;
+    }
+
+    public double getOmzet() {
+        return omzet;
+    }
+
 }
