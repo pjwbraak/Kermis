@@ -6,14 +6,11 @@ class Kermis {
 
     ArrayList<Attractie> attractieLijst = new ArrayList<Attractie>();
 
-    Attractie botsautos     = new Botsautos("Botsautos", 2.50, 50);
-    Attractie spin          = new Spin("Spin", 2.25, 60);
-    Attractie spiegelpaleis = new Spiegelpaleis("Spiegelpaleis", 2.75, 40);
-    Attractie spookhuis     = new Spookhuis("Spookhuis", 3.20, 60);
-    Attractie hawaii        = new Hawaii("Hawaii", 2.90, 40);
-    Attractie ladderklimmen = new Ladderklimmen("Ladderklimmen", 5.00, 10);
-
     Kassa kassa = new Kassa();
+
+    Kermis(Attractie... attracties){
+            addAttracties(attracties);
+    }
 
     final void run() {
 
@@ -23,30 +20,22 @@ class Kermis {
 
     private void runKermis() {
 
-        addToAttractieLijst(    botsautos,
-                                spin,
-                                spiegelpaleis,
-                                spookhuis,
-                                hawaii,
-                                ladderklimmen
-                            );
-
         System.out.println("De Kermis!");
 
-        keuzeMenuKermis();
+        toonKeuzeMenuKermis();
 
         System.out.println("Programma stopt");
 
     }
 
-    private void addToAttractieLijst(Attractie... attractie){
+    public void addAttracties(Attractie... attracties){
 
-        for (Attractie x : attractie) {
+        for (Attractie x : attracties) {
             attractieLijst.add(x);
         }
     }
 
-    private void keuzeMenuKermis(){
+    private void toonKeuzeMenuKermis(){
 
         printAttractieMenuTekst();
 
