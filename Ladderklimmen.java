@@ -1,4 +1,4 @@
-class Ladderklimmen extends Attractie {
+class Ladderklimmen extends GokAttractie {
 
     private String naam;
     private double prijs;
