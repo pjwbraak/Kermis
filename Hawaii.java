@@ -1,10 +1,11 @@
-class Hawaii extends Attractie {
+class Hawaii extends Attractie implements RisicoRijkeAttracties{
 
     private String naam;
     private double prijs;
     private int oppervlakte;
     private double omzet;
     private int kaartjesVerkocht;
+    private int draaiLimiet = 10;
 
     Hawaii(String naam, double prijs, int oppervlakte){
         this.naam = naam;
@@ -32,6 +33,10 @@ class Hawaii extends Attractie {
         return kaartjesVerkocht;
     }
 
+    public int getDraaiLimiet() {
+        return draaiLimiet;
+    }
+
     public void setNaam(String naam) {
         this.naam = naam;
     }
@@ -55,5 +60,9 @@ class Hawaii extends Attractie {
     @Override
     void draaien(){
         System.out.println("De attractie '" + naam + "' draait");
+    }
+
+    public boolean opstellingsKeuring(){
+        return true;
     }
 }

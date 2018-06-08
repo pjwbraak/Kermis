@@ -125,6 +125,5 @@ class Kermis {
         for(int x = 0; x < attractieLijst.size(); x++){
             System.out.println((x + 1) + ": " + attractieLijst.get(x).getNaam() + " - " + attractieLijst.get(x).getKaartjesVerkocht());
         }
-
     }
 }

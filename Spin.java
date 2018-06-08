@@ -1,10 +1,11 @@
-class Spin extends Attractie {
+class Spin extends Attractie implements RisicoRijkeAttracties{
 
     private String naam;
     private double prijs;
     private int oppervlakte;
     private double omzet;
     private int kaartjesVerkocht;
+    private int draaiLimiet = 5;
 
     Spin(String naam, double prijs, int oppervlakte){
         this.naam = naam;
@@ -32,6 +33,10 @@ class Spin extends Attractie {
         return kaartjesVerkocht;
     }
 
+    public int getDraaiLimiet() {
+        return draaiLimiet;
+    }
+
     public void setNaam(String naam) {
         this.naam = naam;
     }
@@ -55,5 +60,9 @@ class Spin extends Attractie {
     @Override
     void draaien(){
         System.out.println("De attractie '" + naam + "' draait");
+    }
+
+    public boolean opstellingsKeuring(){
+        return true;
     }
 }
