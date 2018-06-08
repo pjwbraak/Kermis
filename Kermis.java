@@ -51,9 +51,9 @@ class Kermis {
         printAttractieMenuTekst();
 
         Scanner input = new Scanner(System.in);
-        boolean doorgaan = false;
+        boolean doorgaan = true;
 
-        while (!doorgaan) {
+        while (doorgaan) {
             if (input.hasNextInt()) {
                 int keuze = input.nextInt();
                     for(int x = 0; x < attractieLijst.size(); x++){
@@ -69,14 +69,13 @@ class Kermis {
             } else {
                 String keuze = input.nextLine().toLowerCase();
                 if (Objects.equals(keuze, "o")) {
-                    System.out.println("De totale omzet is:");
-                    System.out.println(kassa.getOmzet());
+                    printOmzet();
                 }
                 else if (Objects.equals(keuze, "k")) {
                     System.out.println("kaartjes laten zien");
                 }
                 else if (Objects.equals(keuze, "s")) {
-                    doorgaan = true;
+                    doorgaan = false;
                 }
             }
         }
@@ -84,10 +83,12 @@ class Kermis {
 
     private void verwerkAttractie(Attractie attractie){
 
-        double omzetTotaal = kassa.getOmzet() + attractie.getPrijs();
-        int kaartjesTotaal = attractie.getKaartjesVerkocht() + 1;
+        double omzetTotaal    = kassa.getOmzet() + attractie.getPrijs();
+        double attractieOmzet = attractie.getOmzet() + attractie.getPrijs();
+        int kaartjesTotaal    = attractie.getKaartjesVerkocht() + 1;
 
         kassa.setOmzet(omzetTotaal);
+        attractie.setOmzet(attractieOmzet);
         attractie.setKaartjesVerkocht(kaartjesTotaal);
         attractie.draaien();
     }
@@ -101,5 +102,16 @@ class Kermis {
         System.out.println("'O': Laat omzet zien");
         System.out.println("'K': Aantal kaartjes verkocht");
         System.out.println("'S': Stoppen");
+    }
+
+    private void printOmzet(){
+
+        System.out.println("De totale omzet is:");
+        System.out.println(kassa.getOmzet());
+        System.out.println("De omzet per attractie is:");
+        for(int x = 0; x < attractieLijst.size(); x++){
+            System.out.println((x + 1) + ": " + attractieLijst.get(x).getNaam() + " - " + attractieLijst.get(x).getOmzet());
+        }
+
     }
 }
