@@ -7,6 +7,7 @@ abstract class Attractie {
     int kaartjesVerkocht;
 
     void draaien(){
+            System.out.println("De attractie '" + naam + "' draait");
     }
 
     public String getNaam() {

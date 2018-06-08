@@ -12,10 +12,12 @@ class Kermis {
             addAttracties(attracties);
     }
 
-    final void run() {
-
-        runKermis();
-
+    final void run() throws Exception {
+        if (attractieLijst.size() < 1) {
+            throw new Exception("Kermis kan niet runnen zonder attracties");
+        } else {
+            runKermis();
+        }
     }
 
     private void runKermis() {
@@ -24,7 +26,7 @@ class Kermis {
 
         toonKeuzeMenuKermis();
 
-        System.out.println("Programma stopt");
+        System.out.println("Programma stopt...");
 
     }
 
@@ -103,7 +105,6 @@ class Kermis {
         for(int x = 0; x < attractieLijst.size(); x++){
             System.out.println((x + 1) + ": " + attractieLijst.get(x).getNaam() + " - " + attractieLijst.get(x).getOmzet());
         }
-
     }
 
     private void printKaartjes(){
