@@ -13,7 +13,15 @@ class Spin extends Attractie implements RisicoRijkeAttracties{
         return draaiLimiet;
     }
 
+    public void setDraaiLimiet(int draaiLimiet) {
+        this.draaiLimiet = draaiLimiet;
+    }
+
     public boolean opstellingsKeuring(){
-        return true;
+        if(kaartjesVerkocht % draaiLimiet == 0 && kaartjesVerkocht > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

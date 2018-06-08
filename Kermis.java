@@ -49,8 +49,17 @@ class Kermis {
                 int keuze = input.nextInt();
                     for(int x = 0; x < attractieLijst.size(); x++){
                         if (keuze == (x + 1)) {
-                            verwerkAttractie(attractieLijst.get(x));
-                            continue;
+                            if(!(attractieLijst.get(x) instanceof RisicoRijkeAttracties)) {
+                                verwerkAttractie(attractieLijst.get(x));
+                                continue;
+                            } else if (((RisicoRijkeAttracties) attractieLijst.get(x)).opstellingsKeuring() == true){
+                                System.out.println("onderhoud nodig");
+                                verwerkAttractie(attractieLijst.get(x));
+                                continue;
+                            } else {
+                                verwerkAttractie(attractieLijst.get(x));
+                                continue;
+                            }
                         }
                     }
                     if (keuze > attractieLijst.size()){
