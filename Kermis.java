@@ -55,28 +55,16 @@ class Kermis {
         while (!doorgaan) {
             if (input.hasNextInt()) {
                 int keuze = input.nextInt();
-                if (keuze == 1) {
-                    verwerkAttractie(attractieLijst.get(0));
-                    continue;
-                } else if (keuze == 2) {
-                    verwerkAttractie(attractieLijst.get(1));
-                    continue;
-                } else if (keuze == 3) {
-                    verwerkAttractie(attractieLijst.get(2));
-                    continue;
-                } else if (keuze == 4) {
-                    verwerkAttractie(attractieLijst.get(3));
-                    continue;
-                } else if (keuze == 5) {
-                    verwerkAttractie(attractieLijst.get(4));
-                    continue;
-                } else if (keuze == 6) {
-                    verwerkAttractie(attractieLijst.get(5));
-                    continue;
-                } else {
+                    for(int x = 0; x < attractieLijst.size(); x++){
+                        if (keuze == (x + 1)) {
+                            verwerkAttractie(attractieLijst.get(x));
+                            continue;
+                        }
+                    }
+                    if (keuze > attractieLijst.size()){
                     System.out.println("ongeldige waarde");
                     continue;
-                }
+                    }
             } else {
                 String keuze = input.nextLine();
                 if (Objects.equals(keuze, "o")) {
