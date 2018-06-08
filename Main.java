@@ -2,12 +2,11 @@ public class Main {
     public static void main(String[] args) {
 
         //welke attracties bestaan er allemaal:
-
         Attractie botsautos     = new Botsautos("Botsautos", 2.50, 50);
-        Attractie spin          = new Spin("Spin", 2.25, 60);
+        Attractie spin          = new Spin("Spin", 2.25, 60,5);
         Attractie spiegelpaleis = new Spiegelpaleis("Spiegelpaleis", 2.75, 40);
         Attractie spookhuis     = new Spookhuis("Spookhuis", 3.20, 60);
-        Attractie hawaii        = new Hawaii("Hawaii", 2.90, 40);
+        Attractie hawaii        = new Hawaii("Hawaii", 2.90, 40, 10);
         Attractie ladderklimmen = new Ladderklimmen("Ladderklimmen", 5.00, 10);
 
         //welke van deze attracties ga je gebruiken in de nieuwe kermis:

@@ -1,11 +1,12 @@
 class Spin extends Attractie implements RisicoRijkeAttracties{
 
-    private int draaiLimiet = 5;
+    private int draaiLimiet;
 
-    Spin(String naam, double prijs, int oppervlakte){
+    Spin(String naam, double prijs, int oppervlakte, int draaiLimiet){
         this.naam = naam;
         this.prijs = prijs;
         this.oppervlakte = oppervlakte;
+        this.draaiLimiet = draaiLimiet;
     }
 
     public int getDraaiLimiet() {
