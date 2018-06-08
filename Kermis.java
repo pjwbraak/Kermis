@@ -33,19 +33,20 @@ class Kermis {
 
         System.out.println("De Kermis!");
 
-        attractieKiezen();
+        keuzeMenuKermis();
 
         System.out.println("Programma stopt");
 
     }
 
     private void addToAttractieLijst(Attractie... attractie){
+
         for (Attractie x : attractie) {
             attractieLijst.add(x);
         }
     }
 
-    private void attractieKiezen(){
+    private void keuzeMenuKermis(){
 
         printAttractieMenuTekst();
 
@@ -66,7 +67,7 @@ class Kermis {
                     continue;
                     }
             } else {
-                String keuze = input.nextLine();
+                String keuze = input.nextLine().toLowerCase();
                 if (Objects.equals(keuze, "o")) {
                     System.out.println("De totale omzet is:");
                     System.out.println(kassa.getOmzet());
@@ -82,8 +83,12 @@ class Kermis {
     }
 
     private void verwerkAttractie(Attractie attractie){
+
         double omzetTotaal = kassa.getOmzet() + attractie.getPrijs();
+        int kaartjesTotaal = attractie.getKaartjesVerkocht() + 1;
+
         kassa.setOmzet(omzetTotaal);
+        attractie.setKaartjesVerkocht(kaartjesTotaal);
         attractie.draaien();
     }
 
@@ -93,8 +98,8 @@ class Kermis {
         for(int x = 0; x < attractieLijst.size(); x++){
             System.out.println((x + 1) + ": " + attractieLijst.get(x).getNaam() + " - " + attractieLijst.get(x).getPrijs());
         }
-        System.out.println("'o': Laat omzet zien");
-        System.out.println("'k': Aantal kaartjes verkocht");
-        System.out.println("'s': Stoppen");
+        System.out.println("'O': Laat omzet zien");
+        System.out.println("'K': Aantal kaartjes verkocht");
+        System.out.println("'S': Stoppen");
     }
 }

@@ -28,6 +28,10 @@ class Spookhuis extends Attractie {
         return omzet;
     }
 
+    public int getKaartjesVerkocht() {
+        return kaartjesVerkocht;
+    }
+
     public void setNaam(String naam) {
         this.naam = naam;
     }
