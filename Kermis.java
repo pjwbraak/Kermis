@@ -4,11 +4,10 @@ import java.util.Scanner;
 
 class Kermis {
 
-    ArrayList<Attractie> attractieLijst = new ArrayList<>();
-
-    PrintMessages printmessages = new PrintMessages();
-    Kassa kassa = new Kassa();
-    BelastingInspecteur belastinginspecteur = new BelastingInspecteur();
+    private ArrayList<Attractie> attractieLijst     = new ArrayList<>();
+    private PrintMessage printmessage               = new PrintMessage();
+    private Kassa kassa                             = new Kassa();
+    private BelastingInspecteur belastinginspecteur = new BelastingInspecteur();
 
     Kermis(Attractie... attracties){
             addAttracties(attracties);
@@ -41,7 +40,7 @@ class Kermis {
 
     private void toonKeuzeMenuKermis(){
 
-        printmessages.printAttractieMenuTekst(attractieLijst);
+        printmessage.printAttractieMenuTekst(attractieLijst);
 
         Scanner input = new Scanner(System.in);
         boolean doorgaan = true;
@@ -68,10 +67,10 @@ class Kermis {
             } else {
                 String keuze = input.nextLine().toLowerCase();
                 if (Objects.equals(keuze, "o")) {
-                    printmessages.printOmzet(attractieLijst, kassa);
+                    printmessage.printOmzet(attractieLijst, kassa);
                 }
                 else if (Objects.equals(keuze, "k")) {
-                    printmessages.printKaartjes(attractieLijst, kassa);
+                    printmessage.printKaartjes(attractieLijst, kassa);
                 }
                 else if (Objects.equals(keuze, "b")) {
                     verwerkBezoekBelastingInspecteur();
@@ -111,6 +110,7 @@ class Kermis {
 
         kassa.setBezoekenBelastinginspecteur(kassa.getBezoekenBelastinginspecteur() + 1);
         System.out.println(kassa.getBezoekenBelastinginspecteur() + "e bezoek belastinginspecteur.");
+
         belastinginspecteur.haalBelastingOp(belastinginspecteur.vindGokAttracties(attractieLijst));
     }
 

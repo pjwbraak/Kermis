@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class PrintMessages {
+class PrintMessage {
 
     void printAttractieMenuTekst(ArrayList<Attractie> attractielijst){
 

@@ -23,7 +23,7 @@ class BelastingInspecteur {
             belastingOpgehaald = belastingOpgehaald + (gokattractie.getOmzet() - omzetMinBelasting);
             gokattractie.setOmzet(omzetMinBelasting);
         }
-        System.out.println("Belastinginspecteur heeft " + belastingOpgehaald + " (30%) belasting opgehaald");
+        System.out.println("Belastinginspecteur heeft " + belastingOpgehaald + " (30% van gokattracties) belasting opgehaald");
         return belastingOpgehaald;
     }
 
