@@ -12,8 +12,8 @@ class BelastingInspecteur {
         return gokattracties;
         }
 
-    void haalBelastingOp(){
-
+    private void haalBelastingOp(Kassa kassa){
+        
     }
 
     public ArrayList<GokAttractie> getGokattracties() {

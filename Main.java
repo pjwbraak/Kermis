@@ -9,7 +9,7 @@ public class Main {
         Attractie hawaii        = new Hawaii("Hawaii", 2.90, 40, 10);
         Attractie ladderklimmen = new Ladderklimmen("Ladderklimmen", 5.00, 10);
 
-        //welke van deze attracties ga je gebruiken in de nieuwe kermis:
+        //welke van deze attracties ga je gebruiken in je eigen kermis:
         Kermis kermis = new Kermis( botsautos,
                                     spin,
                                     spiegelpaleis,

@@ -2,9 +2,12 @@ class Kassa {
 
     private double omzet;
     private int kaartjesVerkocht;
+    private int bezoekenBelastinginspecteur = 0;
 
-
-    public double getOmzet() {
+    public double getOmzet(Attractie... attractie) {
+        for (Attractie x : attractie) {
+            omzet = omzet + x.getOmzet();
+        }
         return omzet;
     }
 
@@ -18,5 +21,13 @@ class Kassa {
 
     public void setKaartjesVerkocht(int kaartjesVerkocht) {
         this.kaartjesVerkocht = kaartjesVerkocht;
+    }
+
+    public int getBezoekenBelastinginspecteur() {
+        return bezoekenBelastinginspecteur;
+    }
+
+    public void setBezoekenBelastinginspecteur(int bezoekenBelastinginspecteur) {
+        this.bezoekenBelastinginspecteur = bezoekenBelastinginspecteur;
     }
 }

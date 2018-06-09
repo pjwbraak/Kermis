@@ -73,7 +73,7 @@ class Kermis {
                     printKaartjes();
                 }
                 else if (Objects.equals(keuze, "b")) {
-                    System.out.println(belastinginspecteur.vindGokAttracties(attractieLijst));
+                    verwerkBezoekBelastingInspecteur();
                 }
                 else if (Objects.equals(keuze, "s")) {
                     doorgaan = false;
@@ -110,6 +110,14 @@ class Kermis {
         }
     }
 
+    private void verwerkBezoekBelastingInspecteur(){
+
+        kassa.setBezoekenBelastinginspecteur(kassa.getBezoekenBelastinginspecteur() + 1);
+        //30% van omzet halen per attractie
+
+        System.out.println(belastinginspecteur.vindGokAttracties(attractieLijst));
+    }
+
     private void toonOnderhoudMenu(Attractie attractie){
 
         boolean gecontroleerd   = false;
@@ -144,6 +152,7 @@ class Kermis {
         }
         System.out.println("'O': Laat omzet zien");
         System.out.println("'K': Aantal kaartjes verkocht");
+        System.out.println("'B': Bezoek belastinginspecteur");
         System.out.println("'S': Stoppen");
     }
 
