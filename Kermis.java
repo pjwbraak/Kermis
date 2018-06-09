@@ -14,7 +14,7 @@ class Kermis {
 
     final void run() throws Exception {
         if (attractieLijst.size() < 1) {
-            throw new Exception("Kermis kan niet runnen zonder attracties");
+            throw new Exception("Kermis kan niet runnen zonder attracties!");
         } else {
             runKermis();
         }
@@ -49,21 +49,18 @@ class Kermis {
                 int keuze = input.nextInt();
                     for(int x = 0; x < attractieLijst.size(); x++){
                         if (keuze == (x + 1)) {
-                            if(!(attractieLijst.get(x) instanceof RisicoRijkeAttracties)) {
-                                verwerkAttractie(attractieLijst.get(x));
-                                continue;
-                            } else if (((RisicoRijkeAttracties) attractieLijst.get(x)).opstellingsKeuring() == true){
-                                System.out.println("onderhoud nodig");
+                            if(!controleerOpOnderhoud(attractieLijst.get(x))) {
                                 verwerkAttractie(attractieLijst.get(x));
                                 continue;
                             } else {
+                                toonOnderhoudMenu(attractieLijst.get(x));
                                 verwerkAttractie(attractieLijst.get(x));
                                 continue;
                             }
                         }
                     }
-                    if (keuze > attractieLijst.size()){
-                    System.out.println("ongeldige waarde");
+                    if (keuze > attractieLijst.size() || keuze < 1){
+                    System.out.println("Ongeldige waarde!");
                     continue;
                     }
             } else {
@@ -76,6 +73,10 @@ class Kermis {
                 }
                 else if (Objects.equals(keuze, "s")) {
                     doorgaan = false;
+                }
+                else {
+                    System.out.println("Ongeldige waarde!");
+                    continue;
                 }
             }
         }
@@ -93,6 +94,42 @@ class Kermis {
         kassa.setKaartjesVerkocht(kaartjesTotaal);
         attractie.setKaartjesVerkocht(attractieKaartjesTotaal);
         attractie.draaien();
+    }
+
+    private boolean controleerOpOnderhoud(Attractie attractie){
+        if(!(attractie instanceof RisicoRijkeAttracties)){
+            return false;
+        } else if (((RisicoRijkeAttracties) attractie).opstellingsKeuring()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void toonOnderhoudMenu(Attractie attractie){
+
+        boolean gecontroleerd   = false;
+        Scanner input           = new Scanner(System.in);
+
+        System.out.println("De attractie " + attractie.getNaam() + " moet eerst onderhoud krijgen!");
+        System.out.println("Roep een monteur aan met 'M'...");
+        while(!gecontroleerd){
+            if (!input.hasNextInt()) {
+                String keuze = input.nextLine().toLowerCase();
+                if (Objects.equals(keuze, "m")) {
+                    System.out.println("Monteur heeft onderhoud uitgevoerd.");
+                    gecontroleerd = true;
+                } else {
+                    System.out.println("Ongeldige waarde!");
+                }
+            } else {
+                int keuze = input.nextInt();
+                if (keuze >= 0 || keuze <= 0) {
+                    System.out.println("Ongeldige waarde!");
+                    continue;
+                }
+            }
+        }
     }
 
     private void printAttractieMenuTekst(){

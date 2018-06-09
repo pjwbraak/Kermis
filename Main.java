@@ -19,7 +19,7 @@ public class Main {
         try{
             kermis.run();
         } catch (Exception e){
-            System.out.println("Kermis heeft minimaal 1 attractie nodig");
+            System.out.println("Kermis heeft minimaal 1 attractie nodig.");
             System.out.println(e);
         }
     }
