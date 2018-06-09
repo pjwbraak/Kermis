@@ -1,4 +1,4 @@
-class Spin extends Attractie implements RisicoRijkeAttracties{
+class Spin extends GokAttractie implements RisicoRijkeAttracties{
 
     private int draaiLimiet;
 

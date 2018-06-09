@@ -12,7 +12,6 @@ class BelastingInspecteur {
         return gokattracties;
     }
 
-
     double haalBelastingOp(ArrayList<GokAttractie> attractie) {
         double belastingOpgehaald = 0;
         for (int x = 0; x < attractie.size(); x++) {
@@ -21,10 +20,9 @@ class BelastingInspecteur {
             belastingOpgehaald = belastingOpgehaald + (gokattractie.getOmzet() - omzetMinBelasting);
             gokattractie.setOmzet(omzetMinBelasting);
         }
-        System.out.println("Belastinginspecteur heeft " + belastingOpgehaald + " belasting opgehaald");
+        System.out.println("Belastinginspecteur heeft " + belastingOpgehaald + " (30%) belasting opgehaald");
         return belastingOpgehaald;
     }
-
 
     public ArrayList<GokAttractie> getGokattracties() {
         return gokattracties;
