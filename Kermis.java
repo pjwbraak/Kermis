@@ -109,9 +109,9 @@ class Kermis {
     private void verwerkBezoekBelastingInspecteur(){
 
         kassa.setBezoekenBelastinginspecteur(kassa.getBezoekenBelastinginspecteur() + 1);
+        System.out.println(kassa.getBezoekenBelastinginspecteur() + "e bezoek belastinginspecteur.");
         //30% van omzet halen per attractie
-
-        System.out.println(belastinginspecteur.vindGokAttracties(attractieLijst));
+        belastinginspecteur.haalBelastingOp(belastinginspecteur.vindGokAttracties(attractieLijst));
     }
 
     private void toonOnderhoudMenu(Attractie attractie){

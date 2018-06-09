@@ -2,11 +2,10 @@ import java.util.ArrayList;
 
 class Kassa {
 
-    private double omzet;
-    private int kaartjesVerkocht;
     private int bezoekenBelastinginspecteur = 0;
 
     public double getOmzet(ArrayList<Attractie> attracties) {
+        double omzet = 0;
         for (Attractie x : attracties) {
             omzet = omzet + x.getOmzet();
         }
@@ -14,18 +13,11 @@ class Kassa {
     }
 
     public int getKaartjesVerkocht(ArrayList<Attractie> attracties) {
+        int kaartjesVerkocht = 0;
         for (Attractie x : attracties) {
             kaartjesVerkocht = kaartjesVerkocht + x.getKaartjesVerkocht();
         }
         return kaartjesVerkocht;
-    }
-
-    public void setOmzet(double omzet) {
-        this.omzet = omzet;
-    }
-
-    public void setKaartjesVerkocht(int kaartjesVerkocht) {
-        this.kaartjesVerkocht = kaartjesVerkocht;
     }
 
     public int getBezoekenBelastinginspecteur() {
