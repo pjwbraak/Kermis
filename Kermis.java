@@ -6,6 +6,7 @@ class Kermis {
 
     ArrayList<Attractie> attractieLijst = new ArrayList<>();
 
+    PrintMessages printmessages = new PrintMessages();
     Kassa kassa = new Kassa();
     BelastingInspecteur belastinginspecteur = new BelastingInspecteur();
 
@@ -40,7 +41,7 @@ class Kermis {
 
     private void toonKeuzeMenuKermis(){
 
-        printAttractieMenuTekst();
+        printmessages.printAttractieMenuTekst(attractieLijst);
 
         Scanner input = new Scanner(System.in);
         boolean doorgaan = true;
@@ -51,11 +52,11 @@ class Kermis {
                     for(int x = 0; x < attractieLijst.size(); x++){
                         if (keuze == (x + 1)) {
                             if(!controleerOpOnderhoud(attractieLijst.get(x))) {
-                                verwerkAttractie(attractieLijst.get(x));
+                                verwerkAttractieRit(attractieLijst.get(x));
                                 continue;
                             } else {
                                 toonOnderhoudMenu(attractieLijst.get(x));
-                                verwerkAttractie(attractieLijst.get(x));
+                                verwerkAttractieRit(attractieLijst.get(x));
                                 continue;
                             }
                         }
@@ -67,10 +68,10 @@ class Kermis {
             } else {
                 String keuze = input.nextLine().toLowerCase();
                 if (Objects.equals(keuze, "o")) {
-                    printOmzet();
+                    printmessages.printOmzet(attractieLijst, kassa);
                 }
                 else if (Objects.equals(keuze, "k")) {
-                    printKaartjes();
+                    printmessages.printKaartjes(attractieLijst, kassa);
                 }
                 else if (Objects.equals(keuze, "b")) {
                     verwerkBezoekBelastingInspecteur();
@@ -86,7 +87,7 @@ class Kermis {
         }
     }
 
-    private void verwerkAttractie(Attractie attractie){
+    private void verwerkAttractieRit(Attractie attractie){
 
         double attractieOmzet       = attractie.getOmzet() + attractie.getPrijs();
         int attractieKaartjesTotaal = attractie.getKaartjesVerkocht() + 1;
@@ -110,7 +111,6 @@ class Kermis {
 
         kassa.setBezoekenBelastinginspecteur(kassa.getBezoekenBelastinginspecteur() + 1);
         System.out.println(kassa.getBezoekenBelastinginspecteur() + "e bezoek belastinginspecteur.");
-        //30% van omzet halen per attractie
         belastinginspecteur.haalBelastingOp(belastinginspecteur.vindGokAttracties(attractieLijst));
     }
 
@@ -137,38 +137,6 @@ class Kermis {
                     continue;
                 }
             }
-        }
-    }
-
-    private void printAttractieMenuTekst(){
-
-        System.out.println("Kies attractie:");
-        for(int x = 0; x < attractieLijst.size(); x++){
-            System.out.println((x + 1) + ": " + attractieLijst.get(x).getNaam() + " - " + attractieLijst.get(x).getPrijs());
-        }
-        System.out.println("'O': Laat omzet zien");
-        System.out.println("'K': Aantal kaartjes verkocht");
-        System.out.println("'B': Bezoek belastinginspecteur");
-        System.out.println("'S': Stoppen");
-    }
-
-    private void printOmzet(){
-
-        System.out.println("De totale omzet is:");
-        System.out.println(kassa.getOmzet(attractieLijst));
-        System.out.println("De omzet per attractie is:");
-        for(int x = 0; x < attractieLijst.size(); x++){
-            System.out.println((x + 1) + ": " + attractieLijst.get(x).getNaam() + " - " + attractieLijst.get(x).getOmzet());
-        }
-    }
-
-    private void printKaartjes(){
-
-        System.out.println("Het totaal verkochte kaartjes is:");
-        System.out.println(kassa.getKaartjesVerkocht(attractieLijst));
-        System.out.println("Het aantal kaartjes verkocht per attractie is:");
-        for(int x = 0; x < attractieLijst.size(); x++){
-            System.out.println((x + 1) + ": " + attractieLijst.get(x).getNaam() + " - " + attractieLijst.get(x).getKaartjesVerkocht());
         }
     }
 }

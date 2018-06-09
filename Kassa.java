@@ -5,7 +5,9 @@ class Kassa {
     private int bezoekenBelastinginspecteur = 0;
 
     public double getOmzet(ArrayList<Attractie> attracties) {
+
         double omzet = 0;
+
         for (Attractie x : attracties) {
             omzet = omzet + x.getOmzet();
         }
@@ -13,7 +15,9 @@ class Kassa {
     }
 
     public int getKaartjesVerkocht(ArrayList<Attractie> attracties) {
+
         int kaartjesVerkocht = 0;
+
         for (Attractie x : attracties) {
             kaartjesVerkocht = kaartjesVerkocht + x.getKaartjesVerkocht();
         }
