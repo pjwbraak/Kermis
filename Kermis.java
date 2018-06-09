@@ -7,6 +7,7 @@ class Kermis {
     ArrayList<Attractie> attractieLijst = new ArrayList<Attractie>();
 
     Kassa kassa = new Kassa();
+    BelastingInspecteur belastinginspecteur = new BelastingInspecteur();
 
     Kermis(Attractie... attracties){
             addAttracties(attracties);
@@ -14,7 +15,7 @@ class Kermis {
 
     final void run() throws Exception {
         if (attractieLijst.size() < 1) {
-            throw new Exception("Kermis kan niet runnen zonder attracties!");
+            throw new Exception("Kermis kan niet draaien zonder attracties!");
         } else {
             runKermis();
         }
@@ -70,6 +71,9 @@ class Kermis {
                 }
                 else if (Objects.equals(keuze, "k")) {
                     printKaartjes();
+                }
+                else if (Objects.equals(keuze, "b")) {
+                    System.out.println(belastinginspecteur.vindGokAttracties(attractieLijst));
                 }
                 else if (Objects.equals(keuze, "s")) {
                     doorgaan = false;
