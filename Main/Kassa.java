@@ -1,8 +1,12 @@
+package Main;
+
+import Attractie.*;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
-class Kassa implements FinancieleNotatie{
+class Kassa implements FinancieleNotatie {
 
     private int bezoekenBelastinginspecteur = 0;
 

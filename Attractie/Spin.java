@@ -1,10 +1,12 @@
-class Hawaii extends Attractie implements RisicoRijkeAttracties{
+package Attractie;
+
+public class Spin extends GokAttractie implements RisicoRijkeAttracties {
 
     private int draaiLimiet;
 
-    Hawaii(String naam, double prijs, int oppervlakte, int draaiLimiet){
+    public Spin(String naam, double prijs, int oppervlakte, int draaiLimiet){
         this.naam = naam;
-        this.prijs = round(prijs, 2);
+        this.prijs = round(prijs,2);
         this.oppervlakte = oppervlakte;
         this.draaiLimiet = draaiLimiet;
     }

@@ -1,10 +1,14 @@
+package Main;
+
+import Attractie.*;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-class Kermis implements FinancieleNotatie{
+class Kermis implements FinancieleNotatie {
 
     private ArrayList<Attractie> attractieLijst     = new ArrayList<>();
     private PrintMessage printmessage               = new PrintMessage();

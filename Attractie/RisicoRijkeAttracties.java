@@ -1,3 +1,5 @@
+package Attractie;
+
 public interface RisicoRijkeAttracties {
 
     int draaiLimiet = 0;

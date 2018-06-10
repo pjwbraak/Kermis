@@ -1,8 +1,12 @@
+package Main;
+
+import Attractie.*;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
-class BelastingInspecteur implements FinancieleNotatie{
+class BelastingInspecteur implements FinancieleNotatie {
 
     private ArrayList<GokAttractie> gokattracties = new ArrayList();
 

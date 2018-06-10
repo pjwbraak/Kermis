@@ -1,7 +1,11 @@
+package Attractie;
+
+import Main.FinancieleNotatie;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-abstract class Attractie implements FinancieleNotatie{
+public abstract class Attractie implements FinancieleNotatie {
 
     String naam;
     double prijs;
@@ -9,7 +13,7 @@ abstract class Attractie implements FinancieleNotatie{
     double omzet;
     int kaartjesVerkocht;
 
-    void draaien(){
+    public void draaien(){
             System.out.println("De attractie '" + naam + "' draait");
     }
 

@@ -1,3 +1,7 @@
+package Main;
+
+import Attractie.Attractie;
+
 import java.util.ArrayList;
 
 class PrintMessage {
