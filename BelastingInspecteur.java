@@ -1,6 +1,8 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
-class BelastingInspecteur {
+class BelastingInspecteur implements FinancieleNotatie{
 
     private ArrayList<GokAttractie> gokattracties = new ArrayList();
 
@@ -22,14 +24,24 @@ class BelastingInspecteur {
             belastingOpgehaald += gokattractie.kansSpelBelastingAfstaan();
         }
         System.out.println("Belastinginspecteur heeft " + belastingOpgehaald + " (30% van gokattracties) belasting opgehaald");
-        return belastingOpgehaald;
+        return round(belastingOpgehaald, 2);
     }
 
     public ArrayList<GokAttractie> getGokattracties() {
+
         return gokattracties;
     }
 
     public void setGokattracties(ArrayList<GokAttractie> gokattracties) {
+
         this.gokattracties = gokattracties;
+    }
+
+    public double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }

@@ -4,7 +4,7 @@ class Hawaii extends Attractie implements RisicoRijkeAttracties{
 
     Hawaii(String naam, double prijs, int oppervlakte, int draaiLimiet){
         this.naam = naam;
-        this.prijs = prijs;
+        this.prijs = round(prijs, 2);
         this.oppervlakte = oppervlakte;
         this.draaiLimiet = draaiLimiet;
     }

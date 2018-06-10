@@ -7,7 +7,7 @@ abstract class GokAttractie extends Attractie{
         double omzetMinBelasting = (this.getOmzet() * omzetBelasting);
         double belasting         = (this.getOmzet() - omzetMinBelasting);
 
-        this.setOmzet(omzetMinBelasting);
-        return belasting;
+        this.setOmzet(round(omzetMinBelasting, 2));
+        return round(belasting, 2);
     }
 }

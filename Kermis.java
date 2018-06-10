@@ -1,8 +1,10 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-class Kermis {
+class Kermis implements FinancieleNotatie{
 
     private ArrayList<Attractie> attractieLijst     = new ArrayList<>();
     private PrintMessage printmessage               = new PrintMessage();
@@ -91,7 +93,7 @@ class Kermis {
         double attractieOmzet       = attractie.getOmzet() + attractie.getPrijs();
         int attractieKaartjesTotaal = attractie.getKaartjesVerkocht() + 1;
 
-        attractie.setOmzet(attractieOmzet);
+        attractie.setOmzet(round(attractieOmzet, 2));
         attractie.setKaartjesVerkocht(attractieKaartjesTotaal);
         attractie.draaien();
     }
@@ -137,5 +139,13 @@ class Kermis {
         System.out.println(kassa.getBezoekenBelastinginspecteur() + "e bezoek belastinginspecteur.");
 
         belastinginspecteur.haalBelastingOp(belastinginspecteur.vindGokAttracties(attractieLijst));
+    }
+
+    public double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }

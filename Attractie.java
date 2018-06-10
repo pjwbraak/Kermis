@@ -1,4 +1,7 @@
-abstract class Attractie {
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+abstract class Attractie implements FinancieleNotatie{
 
     String naam;
     double prijs;
@@ -15,7 +18,7 @@ abstract class Attractie {
     }
 
     public double getPrijs() {
-        return prijs;
+        return round(prijs, 2);
     }
 
     public int getOppervlakte() {
@@ -23,7 +26,7 @@ abstract class Attractie {
     }
 
     public double getOmzet() {
-        return omzet;
+        return round(omzet, 2);
     }
 
     public int getKaartjesVerkocht() {
@@ -35,7 +38,7 @@ abstract class Attractie {
     }
 
     public void setPrijs(double prijs) {
-        this.prijs = prijs;
+        this.prijs = round(prijs, 2);
     }
 
     public void setOppervlakte(int oppervlakte) {
@@ -43,10 +46,18 @@ abstract class Attractie {
     }
 
     public void setOmzet(double omzet) {
-        this.omzet = omzet;
+        this.omzet = round(omzet, 2);
     }
 
     public void setKaartjesVerkocht(int kaartjesVerkocht) {
         this.kaartjesVerkocht = kaartjesVerkocht;
+    }
+
+    public double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }
