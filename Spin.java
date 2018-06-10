@@ -17,9 +17,9 @@ class Spin extends GokAttractie implements RisicoRijkeAttracties{
         this.draaiLimiet = draaiLimiet;
     }
 
-    public boolean opstellingsKeuring(){
+    public boolean checkOpstellingsKeuring() throws Exception{
         if(kaartjesVerkocht % draaiLimiet == 0 && kaartjesVerkocht > 0) {
-            return true;
+            throw new Exception("Attractie " + naam + " heeft onderhoud nodig!");
         } else {
             return false;
         }

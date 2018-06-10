@@ -50,11 +50,11 @@ class Kermis {
                 int keuze = input.nextInt();
                     for(int x = 0; x < attractieLijst.size(); x++){
                         if (keuze == (x + 1)) {
-                            if(!controleerOpOnderhoud(attractieLijst.get(x))) {
+                            if(attractieLijst.get(x) instanceof RisicoRijkeAttracties) {
+                                controleerOpOnderhoud((RisicoRijkeAttracties)attractieLijst.get(x));
                                 verwerkAttractieRit(attractieLijst.get(x));
                                 continue;
                             } else {
-                                toonOnderhoudMenu(attractieLijst.get(x));
                                 verwerkAttractieRit(attractieLijst.get(x));
                                 continue;
                             }
@@ -96,22 +96,14 @@ class Kermis {
         attractie.draaien();
     }
 
-    private boolean controleerOpOnderhoud(Attractie attractie){
-        if(!(attractie instanceof RisicoRijkeAttracties)){
-            return false;
-        } else if (((RisicoRijkeAttracties) attractie).opstellingsKeuring()) {
+    private boolean controleerOpOnderhoud(RisicoRijkeAttracties attractie){
+            try{
+                attractie.checkOpstellingsKeuring();
+            } catch (Exception e) {
+                System.out.println(e);
+                toonOnderhoudMenu((Attractie)attractie);
+            }
             return true;
-        } else {
-            return false;
-        }
-    }
-
-    private void verwerkBezoekBelastingInspecteur(){
-
-        kassa.setBezoekenBelastinginspecteur(kassa.getBezoekenBelastinginspecteur() + 1);
-        System.out.println(kassa.getBezoekenBelastinginspecteur() + "e bezoek belastinginspecteur.");
-
-        belastinginspecteur.haalBelastingOp(belastinginspecteur.vindGokAttracties(attractieLijst));
     }
 
     private void toonOnderhoudMenu(Attractie attractie){
@@ -119,13 +111,12 @@ class Kermis {
         boolean gecontroleerd   = false;
         Scanner input           = new Scanner(System.in);
 
-        System.out.println("De attractie " + attractie.getNaam() + " moet eerst onderhoud krijgen!");
         System.out.println("Roep een monteur aan met 'M'...");
         while(!gecontroleerd){
             if (!input.hasNextInt()) {
                 String keuze = input.nextLine().toLowerCase();
                 if (Objects.equals(keuze, "m")) {
-                    System.out.println("Monteur heeft onderhoud uitgevoerd.");
+                    System.out.println("Monteur heeft onderhoud uitgevoerd op " + attractie.getNaam());
                     gecontroleerd = true;
                 } else {
                     System.out.println("Ongeldige waarde!");
@@ -138,5 +129,13 @@ class Kermis {
                 }
             }
         }
+    }
+
+    private void verwerkBezoekBelastingInspecteur(){
+
+        kassa.setBezoekenBelastinginspecteur(kassa.getBezoekenBelastinginspecteur() + 1);
+        System.out.println(kassa.getBezoekenBelastinginspecteur() + "e bezoek belastinginspecteur.");
+
+        belastinginspecteur.haalBelastingOp(belastinginspecteur.vindGokAttracties(attractieLijst));
     }
 }
