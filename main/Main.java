@@ -1,6 +1,6 @@
-package Main;
+package main;
 
-import Attractie.*;
+import attractie.*;
 
 public class Main {
     public static void main(String[] args) {

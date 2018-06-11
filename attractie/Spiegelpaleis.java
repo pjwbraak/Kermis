@@ -1,4 +1,4 @@
-package Attractie;
+package attractie;
 
 public class Spiegelpaleis extends Attractie {
 

@@ -1,4 +1,4 @@
-package Attractie;
+package attractie;
 
 public abstract class GokAttractie extends Attractie {
 

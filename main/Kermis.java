@@ -1,6 +1,6 @@
-package Main;
+package main;
 
-import Attractie.*;
+import attractie.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

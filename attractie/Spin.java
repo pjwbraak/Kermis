@@ -1,4 +1,4 @@
-package Attractie;
+package attractie;
 
 public class Spin extends GokAttractie implements RisicoRijkeAttracties {
 
@@ -21,7 +21,7 @@ public class Spin extends GokAttractie implements RisicoRijkeAttracties {
 
     public boolean checkOpstellingsKeuring() throws Exception{
         if(kaartjesVerkocht % draaiLimiet == 0 && kaartjesVerkocht > 0) {
-            throw new Exception("Attractie " + naam + " heeft onderhoud nodig!");
+            throw new Exception("attractie " + naam + " heeft onderhoud nodig!");
         } else {
             return false;
         }

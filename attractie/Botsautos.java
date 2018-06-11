@@ -1,4 +1,4 @@
-package Attractie;
+package attractie;
 
 public class Botsautos extends Attractie {
 

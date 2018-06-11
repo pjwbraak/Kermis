@@ -1,6 +1,6 @@
-package Attractie;
+package attractie;
 
-import Main.FinancieleNotatie;
+import main.FinancieleNotatie;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

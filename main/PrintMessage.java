@@ -1,6 +1,6 @@
-package Main;
+package main;
 
-import Attractie.Attractie;
+import attractie.Attractie;
 
 import java.util.ArrayList;
 
